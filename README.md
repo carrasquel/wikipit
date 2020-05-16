@@ -1,2 +1,2 @@
 # wikipit
-A Command Line Tool to Search Wikipedia in the terminal
+A Command Line Tool to Search Wikipedia in the terminal.
