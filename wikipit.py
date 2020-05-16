@@ -1,18 +1,41 @@
 # -*- coding: utf-8 -*-
 # wikipit.py
 
+import shutil
+import textwrap
+import webbrowser
+
 import wikipedia
 import click
 
 @click.command()
 @click.argument('search')
-@click.option('--browser', '-b', default=False, help="Open in browser.")
-@click.option('--lines', '-l', default=15, help="Open in browser.")
-def wiki(search, browser, lines):
+@click.option('--lines', '-l', default=10, help="Number of lines.")
+@click.option('--browser', '-b', is_flag=True, help="Open in browser.")
+def wiki(search, lines, browser=None):
 
     result = wikipedia.summary(search)
 
-    print(result)
+    if browser:
+        page = wikipedia.page(search)
+        url = page.url
+
+        webbrowser.open(url, autoraise=True)
+
+        return
+        
+    if lines:
+        sizes = shutil.get_terminal_size((80, 20))
+        columns = sizes.columns
+        columns -= 2
+
+        rows = textwrap.wrap(result, columns)
+
+        for row in rows[0:lines]:
+            print(row)
+
+    else:
+        print(result)
 
 
 if __name__ == "__main__":
