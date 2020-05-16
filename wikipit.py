@@ -13,9 +13,7 @@ import click
 @click.option('--lines', '-l', default=10, help="Number of lines.")
 @click.option('--browser', '-b', is_flag=True, help="Open in browser.")
 def wiki(search, lines, browser=None):
-
-    result = wikipedia.summary(search)
-
+    
     if browser:
         page = wikipedia.page(search)
         url = page.url
@@ -23,7 +21,9 @@ def wiki(search, lines, browser=None):
         webbrowser.open(url, autoraise=True)
 
         return
-        
+    
+    result = wikipedia.summary(search)
+
     if lines:
         sizes = shutil.get_terminal_size((80, 20))
         columns = sizes.columns
