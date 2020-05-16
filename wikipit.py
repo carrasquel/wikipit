@@ -1,20 +1,27 @@
 # -*- coding: utf-8 -*-
 # wikipit.py
 
-import argparse
 import wikipedia
+import click
 
-def wiki(search):
+@click.command()
+@click.argument('search')
+@click.option('--browser', '-b', default=False, help="Open in browser.")
+@click.option('--lines', '-l', default=15, help="Open in browser.")
+def wiki(search, browser, lines):
 
     result = wikipedia.summary(search)
 
-    return result
+    print(result)
 
 
 if __name__ == "__main__":
 
-    search = "Miguel Cabrera"
+    # search = "Miguel Cabrera"
 
-    result = wiki(search)
+    # result = wiki(search)
 
-    print(result)
+    # print(result)
+
+    wiki()
+
