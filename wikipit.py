@@ -13,7 +13,7 @@ import click
 @click.option('--lines', '-l', default=10, help="Number of lines.")
 @click.option('--browser', '-b', is_flag=True, help="Open in browser.")
 def wiki(search, lines, browser=None):
-    
+
     if browser:
         page = wikipedia.page(search)
         url = page.url
@@ -40,11 +40,4 @@ def wiki(search, lines, browser=None):
 
 if __name__ == "__main__":
 
-    # search = "Miguel Cabrera"
-
-    # result = wiki(search)
-
-    # print(result)
-
     wiki()
-
