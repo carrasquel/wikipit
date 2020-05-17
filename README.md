@@ -35,6 +35,7 @@ Quotes are required for multi-word queries.
 | `--l num` | Set line wrap length to `num` |
 | `-b` | Open full Wikipedia article in default browser |
 | `--all`<br>`-a` | Print all sections of the article (the full page). Recommended to pipe into a reader e.g. `less` |
+| `--lang langCode`<br>`-e langCode` | Specify language; `langCode` is an [HTML ISO language code](https://www.w3schools.com/tags/ref_language_codes.asp) |
 
 ### Output
 
