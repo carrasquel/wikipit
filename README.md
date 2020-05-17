@@ -20,13 +20,13 @@ Quotes are required for multi-word queries.
 
 ### Examples
 
-`$ wikit wikipedia`
+`$ wikipit wikipedia`
 
-`$ wikit "Miguel Cabrera"`
+`$ wikipit "Miguel Cabrera"`
 
-`$ wikit linux -b`
+`$ wikipit linux -b`
 
-`$ wikit "Miguel Cabrera" -l 8`
+`$ wikipit "Miguel Cabrera" -l 8`
 
 ### Flags
 
