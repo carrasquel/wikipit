@@ -11,8 +11,9 @@ import click
 @click.command()
 @click.argument('search')
 @click.option('--lines', '-l', default=10, help="Number of lines.")
+@click.option('--all', '-a', is_flag=True, help="Print the entire page content.")
 @click.option('--browser', '-b', is_flag=True, help="Open in browser.")
-def wiki(search, lines, browser=None):
+def wiki(search, lines, all=None, browser=None):
 
     if browser:
         page = wikipedia.page(search)
@@ -23,6 +24,12 @@ def wiki(search, lines, browser=None):
         return
     
     result = wikipedia.summary(search)
+
+    if all:
+        page = wikipedia.page(search)
+        print(page.content)
+
+        return
 
     if lines:
         sizes = shutil.get_terminal_size((80, 20))

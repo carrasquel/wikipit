@@ -6,8 +6,7 @@ A Command Line Tool to Search Wikipedia in the terminal.
    - [Examples](#examples)
    - [Flags](#flags)
    - [Output](#output)
- - [Bugs & Suggestions](#bugs-and-suggestions)
- - [Support Development - Buy Me A Coffee](#support-development)
+ - [Support Development](#support-development)
 
  ## Installation
 
@@ -35,6 +34,7 @@ Quotes are required for multi-word queries.
 | ---- | ----------- |
 | `--l num` | Set line wrap length to `num` |
 | `-b` | Open full Wikipedia article in default browser |
+| `--all`<br>`-a` | Print all sections of the article (the full page). Recommended to pipe into a reader e.g. `less` |
 
 ### Output
 
@@ -54,3 +54,9 @@ $ wikipit "Miguel Cabrera"
  In Venezuelan Winter League, Liga de Beisbol Profesional de Venezuela, Cabrera was
  signed by Tigres de Aragua at 16 years old. He batted his first hit in 
 ```
+
+### Support development
+
+If you liked this, donate to the cause.
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/carrasquel)
