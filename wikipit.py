@@ -10,6 +10,8 @@ import webbrowser
 import wikipedia
 import click
 
+OFFSET = 2
+
 def delegate_to_browser(address):
     webbrowser.open(address, autoraise=True)
 
@@ -18,38 +20,32 @@ def display_raw(content):
 
 def display_with_fixed_width(lines, content):
     sizes = shutil.get_terminal_size((80, 20))
-    columns = sizes.columns
-    columns -= 2
+    columns = sizes.columns - OFFSET
 
     rows = textwrap.wrap(content, columns)
 
     for row in rows[0:lines]:
         print(row)
 
-def obtain_address_from_keywords(keywords):
+def address_from_keywords(keywords):
     return wikipedia.page(keywords).url
 
-def obtain_summary_from_keywords(keywords):
+def summary_from_keywords(keywords):
     return wikipedia.summary(keywords)
 
-def obtain_content_from_keywords(keywords):
+def content_from_keywords(keywords):
     return wikipedia.page(keywords).content
-
 
 def searcher(keywords, lines, all_, browser):
     if browser:
-        return obtain_address_from_keywords(keywords)
-    
-    result = obtain_summary_from_keywords(keywords)
-
+        return address_from_keywords(keywords)
     if all_:
-        return obtain_content_from_keywords(keywords)
+        return content_from_keywords(keywords)
 
-    if lines:
-        return result
+    result = summary_from_keywords(keywords)
 
-    else:
-        return result
+    return result
+
 
 @click.command()
 @click.argument('keywords')
